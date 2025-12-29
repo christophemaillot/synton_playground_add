@@ -9,7 +9,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: "Greet the world"
-        run: git log --pretty=oneline "$BEFORE_REF...$AFTER_REF"
+        run: git log --pretty=oneline "${{ github.event.before }}...${{ github.event.after }}"
 
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
