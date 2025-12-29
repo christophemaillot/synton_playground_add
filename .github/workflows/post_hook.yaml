@@ -23,8 +23,8 @@ jobs:
       - run: echo "Build number is ${{ github.run_number }}."
       - run: echo "Workflow name is ${{ github.workflow }}."
       - run: echo "Workflow run ID is ${{ github.run_id }}."
-      - run: echo "${{ toJSON(github.event) }}"
+      - run: echo '${{ toJSON(github.event) }}'
       - name: "Post data"
         run: |
-          curl -X POST -H "Content-Type: application/json" -d "${{ toJSON(github.event) }}"" https://whf2ae277b531bb6dc40.free.beeceptor.com
+          curl -X POST -H "Content-Type: application/json" -d '${{ toJSON(github.event) }}' https://whf2ae277b531bb6dc40.free.beeceptor.com
       - run: echo "🚀 The job is done!"
