@@ -1,0 +1,30 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v5
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: echo "Git hash of the latest commit is ${{ github.sha }}."
+      - run: echo "Git branch name is ${{ github.ref_name }}."
+      - run: echo "Git commit message is '${{ github.event.head_commit.message }}'."
+      - run: echo "Repository name is ${{ github.repository }}."
+      - run: echo "Build number is ${{ github.run_number }}."
+      - run: echo "Workflow name is ${{ github.workflow }}."
+      - run: echo "Workflow run ID is ${{ github.run_id }}."
+      - run: echo "Workflow run attempt is ${{ github.run_attempt }}."
+      - name: "Post data"
+        run: |
+          curl -X POST -H "Content-Type: application/json" -d ${{ github.event }} https://whf2ae277b531bb6dc40.free.beeceptor.com
+      - run: echo "🚀 The job is done!"
